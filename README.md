@@ -5,6 +5,9 @@ AppleScript that will read a CSV file containing URL, username and password data
 ![alt tag](demo.gif)
 
 ## CSV Layout
+Export in chrome and than run:
+>cat Chrome-wachtwoorden.csv  | awk -F ',' '{print $2","$3","$4}' > passwords-prepared.csv
+
 Create a CSV without headers with data in the below order.
 >url,username,password
 
