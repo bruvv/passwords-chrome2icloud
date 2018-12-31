@@ -13,6 +13,8 @@ Go to chrome://settings/passwords, click Other actions button, then click Export
 
 ## CSV Layout
 Export in chrome and than run:
+>cat Chrome-wachtwoorden.csv  | awk -F ',' '{print $2","$3","$4}' > passwords-prepared.csv
+> OR
 >cat Chrome-Passwords.csv  | awk -F ',' '{print $2","$3","$4}' > passwords-prepared.csv
 
 Create a CSV without headers with data in the below order.
