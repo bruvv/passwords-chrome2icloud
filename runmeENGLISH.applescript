@@ -13,9 +13,9 @@ tell application "System Events"
 		set frontmost to true
 		keystroke "," using command down
 		tell window 1
-			click button "Wachtwoorden" of toolbar 1 of it
-			repeat until (exists button "Voeg toe" of group 1 of group 1 of it)
-				if not (exists button "Voeg wachtwoord toe" of group 1 of group 1 of it) then
+			click button "Passwords" of toolbar 1 of it
+			repeat until (exists button "Add" of group 1 of group 1 of it)
+				if not (exists button "Add Password" of group 1 of group 1 of it) then
 					display dialog "To begin importing, unlock Safari passwords then click OK. Please do not use your computer until the process has completed." with title "CSV to iCloud Keychain"
 				end if
 			end repeat
@@ -38,7 +38,7 @@ repeat with i from 1 to length of recs
 			set frontmost to true
 			tell window 1
 				
-				click button "Voeg toe" of group 1 of group 1 of it
+				click button "Add" of group 1 of group 1 of it
 				-- write fields
 				tell sheet 1 of it
 					set value of text field 1 of it to kcURL
