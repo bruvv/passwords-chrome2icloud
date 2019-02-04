@@ -39,6 +39,8 @@ repeat with i from 1 to length of recs
 			tell window 1
 				
 				click button "Voeg toe" of group 1 of group 1 of it
+				delay 1
+
 				-- write fields
 				tell sheet 1 of it
 					set value of text field 1 of it to kcURL
