@@ -15,11 +15,18 @@ Go to chrome://settings/passwords, click Other actions button, then click Export
 Export in chrome and than run:
 For Dutch:
 
->cat Chrome-wachtwoorden.csv  | awk -F ',' '{print $2","$3","$4}' > passwords-prepared.csv
+>cat Chrome-wachtwoorden.csv | awk -F ',' '{print $2","$3","$4}' > passwords-prepared.csv
 
 For English:
 
->cat Chrome-Passwords.csv  | awk -F ',' '{print $2","$3","$4}' > passwords-prepared.csv
+>cat Chrome-Passwords.csv | awk -F ',' '{print $2","$3","$4}' > passwords-prepared.csv
+
+For Chinese:
+>cat Chrome-Passwords.csv | awk -F ',' '{print $2","$3","$4}' > passwords-prepared.csv
+
+>iconv -f UTF-8 -t GB18030 passwords-prepared.csv > passwords-prepared-gb.csv
+
+This new command fix the issue in Chinese characters.
 
 Create a CSV without headers with data in the below order.
 >url,username,password
