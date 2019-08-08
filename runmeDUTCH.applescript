@@ -31,15 +31,15 @@ repeat with i from 1 to length of recs
 	set kcURL to text item 1 of (item i of recs)
 	set kcUsername to text item 2 of (item i of recs)
 	set kcPassword to text item 3 of (item i of recs)
-	
+
 	-- write kcURL, kcUsername and kcPassword into text fields of safari passwords
 	tell application "System Events"
 		tell application process "Safari"
 			set frontmost to true
 			tell window 1
-				
-				click button "Voeg toe" of group 1 of group 1 of it
+
 				delay 1
+				click button "Voeg toe" of group 1 of group 1 of it
 
 				-- write fields
 				tell sheet 1 of it
@@ -48,9 +48,10 @@ repeat with i from 1 to length of recs
 					set value of text field 2 of it to kcUsername
 					keystroke tab
 					set value of text field 3 of it to kcPassword
+					keystroke tab
 					keystroke return
 				end tell
-				
+
 			end tell
 		end tell
 	end tell

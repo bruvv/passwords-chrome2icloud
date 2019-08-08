@@ -13,9 +13,9 @@ tell application "System Events"
 		set frontmost to true
 		keystroke "," using command down
 		tell window 1
-			click button "Passwords" of toolbar 1 of it
-			repeat until (exists button "Add" of group 1 of group 1 of it)
-				if not (exists button "Add Password" of group 1 of group 1 of it) then
+			click button "√‹¬Î" of toolbar 1 of it
+			repeat until (exists button "ÃÌº”" of group 1 of group 1 of it)
+				if not (exists button "ÃÌº”√‹¬Î" of group 1 of group 1 of it) then
 					display dialog "To begin importing, unlock Safari passwords then click OK. Please do not use your computer until the process has completed." with title "CSV to iCloud Keychain"
 				end if
 			end repeat
@@ -26,21 +26,21 @@ end tell
 -- getting values for each record
 set vals to {}
 set AppleScript's text item delimiters to ","
-repeat with i from 1 to length of recs
+repeat with i from 1 to (length of recs) - 1
 	set end of vals to text items of (item i of recs)
 	set kcURL to text item 1 of (item i of recs)
 	set kcUsername to text item 2 of (item i of recs)
 	set kcPassword to text item 3 of (item i of recs)
-
+	
 	-- write kcURL, kcUsername and kcPassword into text fields of safari passwords
 	tell application "System Events"
 		tell application process "Safari"
 			set frontmost to true
 			tell window 1
-
+				
 				delay 1
-				click button "Add" of group 1 of group 1 of it
-
+				click button "ÃÌº”" of group 1 of group 1 of it
+				
 				-- write fields
 				tell sheet 1 of it
 					set value of text field 1 of it to kcURL
@@ -51,7 +51,7 @@ repeat with i from 1 to length of recs
 					keystroke tab
 					keystroke return
 				end tell
-
+				
 			end tell
 		end tell
 	end tell
